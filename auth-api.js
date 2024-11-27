@@ -10,7 +10,7 @@ const app = express();
 // Configuración de CORS
 app.use(
   cors({
-    origin: 'https://page-pdf-utils.netlify.app', // URL del frontend
+    origin: ['https://page-pdf-utils.netlify.app', 'http://localhost:4321'], // URLs del frontend
     credentials: true,
   })
 );
