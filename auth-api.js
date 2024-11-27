@@ -8,10 +8,12 @@ const apiRoutes = require('./routes/api');
 const app = express();
 
 // Configuración de CORS
-app.use(cors({
-  origin: 'http://localhost:4321', // Dirección del frontend
-  credentials: true,
-}));
+app.use(
+  cors({
+    origin: 'https://page-pdf-utils.netlify.app', // URL del frontend
+    credentials: true,
+  })
+);
 
 // Configuración de sesiones
 app.use(
@@ -32,6 +34,7 @@ app.use('/auth', authRoutes); // Rutas de autenticación
 app.use('/api', apiRoutes);   // Rutas de la API
 
 // Puerto de escucha
-app.listen(5000, () => {
-  console.log('Servidor escuchando en http://localhost:5000');
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => {
+  console.log(`Servidor escuchando en http://localhost:${PORT}`);
 });

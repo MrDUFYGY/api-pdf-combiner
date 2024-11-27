@@ -41,7 +41,7 @@ router.get(
   '/google/callback',
   passport.authenticate('google', { failureRedirect: '/' }),
   (req, res) => {
-    res.redirect('http://localhost:4321/dashboard'); // Redirige al frontend
+    res.redirect('https://page-pdf-utils.netlify.app/dashboard'); // Redirige al frontend en Netlify
   }
 );
 
@@ -52,7 +52,7 @@ router.get('/logout', (req, res) => {
       console.error('Error al cerrar sesión:', err);
       return res.status(500).send('Error al cerrar sesión.');
     }
-    res.redirect('http://localhost:4321/index'); // Redirige al inicio del frontend
+    res.redirect('https://page-pdf-utils.netlify.app/index'); // Redirige al inicio del frontend
   });
 });
 
